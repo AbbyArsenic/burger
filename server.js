@@ -18,7 +18,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // ROUTER
 // ====================================================
-require("./controllers/burgers-controller.js")(app);
+require("./controllers/burgers_controller.js");
 
 // LISTENER
 // ====================================================
