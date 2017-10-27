@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>MMMMMmmmmm... Burgers!!!</h1>
+  <h1>MMMmmmmmmm... Burgers!!!</h1>
   
   <div class="row">
-    <div class="col-md-4" id="uneaten-burgers">
+    <div class="col-sm-4" id="uneaten-burgers">
       <h2>Uneaten Burgers</h2>
 
       <ul>
@@ -21,8 +21,10 @@
       </ul>
     </div>
     
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <h1>Add a Burger</h1>
+      <img src="/assets/img/burger.png">
+      <br><br>
       <form class="create-form">
         <div class="form-group">
           <label for="new-burger">Burger Name:</label>
@@ -33,13 +35,14 @@
       </form>
     </div>
 
-    <div class="col-md-4" id="devoured-burgers">
+    <div class="col-sm-4" id="devoured-burgers">
       <h2>Devoured Burgers</h2>
-
       <ul>
         {{#each burgers}}
           {{#if devoured}}
-            {{burger_name}}
+            <ul>
+              <li>{{burger_name}}</li>
+            </ul>
           {{/if}}
         {{/each}}
       </ul>

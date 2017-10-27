@@ -8,7 +8,7 @@ $(function() {
         }).then(function(data) {
             // console.log("Devoured " + data.burger_name);
             console.log(data);
-            // location.reload();
+            location.reload();
         });
     });
 
