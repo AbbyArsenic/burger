@@ -15,13 +15,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(express.static("public"));
+
+// SET HANDLEBARS
+// ====================================================
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars'); 
 
 // ROUTER
 // ====================================================
-require("./controllers/burgers_controller.js");
+var routes = require("./controllers/burgers_controller.js");
+app.use('/', routes);
 
 // LISTENER
 // ====================================================
-app.listen(process.env.PORT || PORT, function() {
+app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });

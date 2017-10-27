@@ -15,14 +15,14 @@ var orm = {
   // INSERT INTO burgers (burger_name) VALUES (burgerName)
   insertOne: function(burgerName, cb) {
     var queryString = 'INSERT INTO burgers (burger_name) VALUES (?)';
-    connection.query(queryString[burgerName], function(err, res) {
+    connection.query(queryString, [burgerName], function(err, res) {
       cb(res);
     });
   },
   // UPDATE burgers SET devoured = true WHERE id = ?
-  updateOne: function(burgerID, cb) {
-    var queryString = 'UPDATE burgers SET devoured = true WHERE id = ?';
-    connection.query(queryString[burgerID], function(err, res) {
+  updateOne: function(condition, cb) {
+    var queryString = 'UPDATE burgers SET devoured = true WHERE ' + condition;
+    connection.query(queryString, function(err, res) {
       cb(res);
     });
   }
